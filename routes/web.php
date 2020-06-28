@@ -15,6 +15,7 @@ Route::group(['middleware'=>['auth']], function () {
     Route::get('task/edit/{taskId}','TaskController@edit')->name('edit');
     Route::post('task/update/{taskId}','TaskController@update')->name('update');
     Route::delete('task/delete/{taskId}','TaskController@destroy')->name('delete');
+    Route::get('task/complete/{task}','TaskController@complete')->name('complete');
 
       
 });
