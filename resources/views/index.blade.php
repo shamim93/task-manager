@@ -21,7 +21,13 @@ Taks | Home
                         @foreach($tasks as $task)
                         <li class="list-group-item">
                             {{$task->title}}
-                        <a href="{{route('show',$task->id)}}" class="btn btn-primary sm float-right">View</a>
+                        @if(!$task->completed)
+                        <a href="{{route('complete',$task->id)}}" class="btn btn-warning float-right">Complete</a>
+                        @endif
+                        @if($task->completed)
+                        <a href="{{route('complete',$task->id)}}" class="btn disabled float-right">Completed</a>
+                        @endif
+                        <a href="{{route('show',$task->id)}}" class="btn btn-primary mr-2 float-right">View</a>
                         <!-- <a href="#" class="btn btn-warning sm float-right">Edit</a>
                         <a href="#" class="btn btn-danger sm float-right">Delete</a> -->
                         </li>
