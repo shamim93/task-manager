@@ -25,6 +25,14 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('show-task',function($user,$task){
+            return $user->id == $task->user_id;
+        });
+        Gate::define('edit-task',function($user,$task){
+            return $user->id == $task->user_id;
+        });
+        Gate::define('delete-task',function($user,$task){
+            return $user->id == $task->user_id;
+        });
     }
 }
